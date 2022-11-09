@@ -9,7 +9,7 @@
 Cordova:
 
 ```bash
-cordova plugin add https://github.com/remoorejr/photoviewer.git
+cordova plugin add https://github.com/remoorejr/cordova-plugin-photoviewer.git
 ```
 
 ### Android
