@@ -37,5 +37,9 @@
 			</feature>
 		</config-file>
 		<source-file src="src/ios/PhotoViewer.m" />
+
+		<config-file target="*-Info.plist" parent="NSPhotoLibraryAddUsageDescription">
+                <string>This app requires access to the photo library to add a viewed image to the users photo library.</string>
+        </config-file>
 	</platform>
 </plugin>
