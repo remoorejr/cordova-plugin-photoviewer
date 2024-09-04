@@ -2,7 +2,8 @@
 
 > This plugin is intended to show a picture from an URL into a Photo Viewer with zoom features.
 >
-> This fork has been modified to build with Android 12.
+> This fork has been modified on 09/04/2024 to build with Cordova Android 13
+
 
 ## How to Install
 
