@@ -2,7 +2,8 @@
 
 > This plugin is intended to show a picture from an URL into a Photo Viewer with zoom features.
 >
-> This fork has been modified on 09/04/2024 to build with Cordova Android 13
+> This version (1.2.8) has been tested with Cordova 12.0.1
+
 
 
 ## How to Install
@@ -15,11 +16,11 @@ cordova plugin add https://github.com/remoorejr/cordova-plugin-photoviewer.git
 
 ### Android
 
-> Out of the box
+> Tested with Cordova Android 13.0.0 API Levels 25 through 34
 
 ### iOS
 
-> Out of the box
+> Tested with Cordova iOS 7.1.1, Xcode 15.2, iOS 17.0
 
 ### API
 
@@ -42,13 +43,22 @@ Options:
 ##### Usage
 
 ```
+
+default piccasoOptions: {
+            fit: true,
+            centerInside: true,
+            centerCrop: false
+        }
+
 var options = {
-    share: true, // default is false
-    closeButton: false, // default is true
-    copyToReference: true, // default is false
-    headers: '',  // If this is not provided, an exception will be triggered
-    piccasoOptions: { } // If this is not provided, an exception will be triggered
+    share: true,            // default is false
+    closeButton: false,     // default is true
+    copyToReference: true,  // default is false
+    headers: '',            //  iOS: If this is not provided, an exception will be triggered
+    piccasoOptions: { }     //  ANDROID: If this is not provided, defaults will be used
 };
+
+
 
 PhotoViewer.show('http://my_site.com/my_image.jpg', 'Optional Title', options);
 ```
