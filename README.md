@@ -146,3 +146,9 @@ PhotoViewer.show('http://my_site.com/my_image.jpg', 'Optional Title', options);
 
 - Modified gradle build file to support Android 12
 - @remoorejr
+
+(1.28)
+
+- removed permission checks, READ and WRITE EXTERNAL for Android API Level 30+, not required 
+- removed media read permission request, Android 12 plus, not required and is flagged on GPS submission
+- @remoorejr

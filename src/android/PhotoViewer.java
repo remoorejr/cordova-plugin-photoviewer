@@ -21,9 +21,10 @@ public class PhotoViewer extends CordovaPlugin {
 
     public static final int PERMISSION_DENIED_ERROR = 20;
 
+    //Note: these permissions are only required when the device is running 
+
     public static final String WRITE = Manifest.permission.WRITE_EXTERNAL_STORAGE;
     public static final String READ = Manifest.permission.READ_EXTERNAL_STORAGE;
-    public static final String READ_IMAGES = Manifest.permission.READ_MEDIA_IMAGES;
 
     public static final int REQ_CODE = 0;
 
@@ -35,30 +36,26 @@ public class PhotoViewer extends CordovaPlugin {
         if (action.equals("show")) {
             this.args = args;
             this.callbackContext = callbackContext;
-            if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-                if (cordova.hasPermission(READ_IMAGES)) {
-                    this.launchActivity();
-                } else {
-                    this.getPermission();
-                }
+
+            boolean api_level_30_plus = (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.R);
+            // api level 30 plus has read/write permissions inherently, WRITE_EXTERNAL_STORAGE deprecated
+
+            if (api_level_30_plus) {
+                this.launchActivity();
             } else {
                 if (cordova.hasPermission(READ) && cordova.hasPermission(WRITE)) {
                     this.launchActivity();
                 } else {
                     this.getPermission();
-                }
-            }
+                };
+            };
             return true;
         }
         return false;
     }
 
     protected void getPermission() {
-        if (android.os.Build.VERSION.SDK_INT >= Build.VERSION_CODES.TIRAMISU) {
-            cordova.requestPermissions(this, REQ_CODE, new String[]{READ_IMAGES});
-        } else {
-            cordova.requestPermissions(this, REQ_CODE, new String[]{WRITE, READ});
-        }
+        cordova.requestPermissions(this, REQ_CODE, new String[]{WRITE, READ});
     }
 
     //

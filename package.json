@@ -1,6 +1,6 @@
 {
   "name": "cordova-plugin-photoviewer",
-  "version": "1.2.7",
+  "version": "1.2.8",
   "description": "This plugin is intended to show a picture from an URL into a Photo Viewer with zoom features.",
   "cordova": {
     "id": "cordova-plugin-photoviewer",
